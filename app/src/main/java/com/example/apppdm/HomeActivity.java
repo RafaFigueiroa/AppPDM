@@ -22,6 +22,7 @@ public class HomeActivity extends AppCompatActivity {
         changeNumber();
         dialPhone();
         setAlarm();
+        toProfile();
     }
 
     private void changeNumber() {
@@ -81,6 +82,19 @@ public class HomeActivity extends AppCompatActivity {
                 i.putExtra(AlarmClock.EXTRA_HOUR, alarmPicker.getHour());
                 i.putExtra(AlarmClock.EXTRA_MINUTES, alarmPicker.getMinute());
 
+                startActivity(i);
+            }
+        });
+    }
+
+    private void toProfile(){
+        Button profileButton = (Button) findViewById(R.id.profileButton);
+
+        Intent i = new Intent(this, ProfileActivity.class);
+
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 startActivity(i);
             }
         });
