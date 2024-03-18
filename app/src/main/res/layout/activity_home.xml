@@ -55,29 +55,55 @@
         android:id="@+id/dialPhoneButton"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="16dp"
         android:backgroundTint="#3C7C85"
         android:text="TELEFONE"
         android:textColor="#FFFFFF"
         app:cornerRadius="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/inputPhone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/inputPhone"
-        app:layout_constraintTop_toBottomOf="@+id/num" />
+        app:layout_constraintTop_toTopOf="@+id/inputPhone" />
 
     <EditText
         android:id="@+id/inputPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:backgroundTint="#3C7C85"
         android:ems="10"
         android:hint="Digite um número..."
         android:inputType="phone"
         android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="@+id/dialPhoneButton"
-        app:layout_constraintEnd_toStartOf="@+id/dialPhoneButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/dialPhoneButton" />
+        app:layout_constraintTop_toBottomOf="@+id/num"
+        app:layout_constraintVertical_bias="0.100000024" />
+
+    <Button
+        android:id="@+id/alarmButton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:backgroundTint="#3C7C85"
+        android:text="ALARM"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/inputAlarm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/inputAlarm"
+        app:layout_constraintTop_toTopOf="@+id/inputAlarm" />
+
+    <TimePicker
+        android:id="@+id/inputAlarm"
+        android:layout_width="234dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:timePickerMode="spinner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/num"
+        app:layout_constraintVertical_bias="0.3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

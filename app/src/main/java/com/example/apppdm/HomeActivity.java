@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.AlarmClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
@@ -19,6 +21,7 @@ public class HomeActivity extends AppCompatActivity {
 
         changeNumber();
         dialPhone();
+        setAlarm();
     }
 
     private void changeNumber() {
@@ -57,6 +60,27 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 i.setData(Uri.parse("tel:" + phone.getText().toString()));
+
+                startActivity(i);
+            }
+        });
+    }
+
+    private void setAlarm() {
+        TimePicker alarmPicker = (TimePicker) findViewById(R.id.inputAlarm);
+        Button setAlarmButton = (Button) findViewById(R.id.alarmButton);
+
+        alarmPicker.setIs24HourView(true);
+
+        Intent i = new Intent(AlarmClock.ACTION_SET_ALARM)
+                .putExtra(AlarmClock.EXTRA_MESSAGE, "Meu alarme");
+
+        setAlarmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                i.putExtra(AlarmClock.EXTRA_HOUR, alarmPicker.getHour());
+                i.putExtra(AlarmClock.EXTRA_MINUTES, alarmPicker.getMinute());
+
                 startActivity(i);
             }
         });
